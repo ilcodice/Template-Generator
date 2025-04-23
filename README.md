@@ -56,9 +56,9 @@ console.log((sum(5, 4))
 
 ## 🧪 Run the Generated Files Python.py and JavaScript.py:
 ### python.py:
-1- cd to function directory
-2- execute: python3 python.py
+1. cd to function directory
+2. execute: python3 python.py
 
 ### javascript:
-1- cd to function directory
-2- node javascript.js
+1. cd to function directory
+2. node javascript.js
