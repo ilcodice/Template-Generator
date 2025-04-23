@@ -2,10 +2,14 @@ import fs from "fs";
 import path from "path";
 import inquirer from "inquirer";
 
-const location = path.resolve("./functions");  
+const location: string = path.resolve("./functions");
 
-const createFunktion = async () => {
-  const { functionName, par1, par2 } = await inquirer.prompt([
+const createFunktion = async (): Promise<void> => {
+  const {
+    functionName,
+    par1,
+    par2,
+  }: { functionName: string; par1: string; par2: string } = await inquirer.prompt([
     {
       type: "input",
       name: "functionName",
@@ -14,29 +18,31 @@ const createFunktion = async () => {
     {
       type: "input",
       name: "par1",
-      message: "Enter value for parameter 1:",
+      message: "Enter first number:",
     },
     {
       type: "input",
       name: "par2",
-      message: "Enter value for parameter 2:",
+      message: "Enter second number:",
     },
   ]);
 
-  // this checks if the dir is exists
-  if (!fs.existsSync(location)) { 
+  const num1 = parseInt(par1);
+  const num2 = parseInt(par2);
+
+  if (!fs.existsSync(location)) {
     fs.mkdirSync(location);
   }
 
-  let python = `def myfunc(par1, par2):\n    return par1 + par2\nprint(myfunc(${par1},${par2}))`;
-  let javaScript = `let myfunc = (par1, par2) => {\n    return par1 + par2;\n}console.log(myfunc(${par1},${par2}));`;
+  const python = `def sum(par1, par2):\n    return par1 + par2\n\nprint(sum(${num1}, ${num2}))`;
+  const javaScript = `let sum = (par1, par2) => {\n    return par1 + par2;\n};\n\nconsole.log(sum(${num1}, ${num2}));`;
 
   if (functionName.toLowerCase() === "python") {
     fs.writeFileSync(path.join(location, "python.py"), python, "utf8");
     console.log("Python file written!");
   } else if (functionName.toLowerCase() === "javascript") {
     fs.writeFileSync(path.join(location, "javascript.js"), javaScript, "utf8");
-    console.log("JavaScript file written!");
+    console.log(" JavaScript file written!");
   } else {
     console.log("Unsupported language. Please choose either 'python' or 'javascript'.");
   }
