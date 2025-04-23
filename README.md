@@ -1,4 +1,4 @@
-About This Progremm 
+## About This Progremm 
 
 🚀 Function Template Generator (Node.js)
 A simple Node.js program that generates function templates in either Python 🐍 or JavaScript 💻 based on user input. The program allows users to specify function parameters and creates a corresponding function template in the selected language, saving it into a file inside a functions directory.
