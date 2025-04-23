@@ -22,16 +22,16 @@ Node.js (version 12 or higher)
 Inquirer (for interactive prompts)
 
 ## ⚡ How to Use:
-# 1. Clone the repository
+### 1. Clone the repository
 git clone https://github.com/git@github.com:ilcodice/Template-Generator.git
 
-# 2. Navigate to the project folder
+### 2. Navigate to the project folder
 cd function-template-generator
 
-# 3. Install dependencies
+### 3. Install dependencies
 npm install
 
-# 4. Run the program
+### 4. Run the program
 node index.js
 
 
